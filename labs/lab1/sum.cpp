@@ -19,20 +19,22 @@ int main() {
     cout<< endl;
     srand(time(0));
 
-    cout << "N\tSum\tTime (microsec)\n";
     for (int n = min; n <= max; n++) {
+        cout<<"array of elements ";
         int arr[n];
 
         for (int i = 0; i < n; i++) {
             arr[i] = rand() % 100;
+            cout<<arr[i]<<" ";
         }
+        cout<<endl<<"Sum= "<<Sum(arr, n);    
 
         auto start = std::chrono::high_resolution_clock::now();
         int sum = Sum(arr, n);
         auto end = std::chrono::high_resolution_clock::now();
         std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
 
-        cout << n << "\t" << sum << "\t" << duration.count() << endl;
+       cout<<endl<<"Time Taken = "<<duration.count()<<endl;
     }
     return 0;
 }

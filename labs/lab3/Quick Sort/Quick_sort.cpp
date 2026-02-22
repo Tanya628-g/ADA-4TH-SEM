@@ -1,7 +1,7 @@
 #include<iostream>
 using namespace std;
 
-void Interchange(int a[], int i, int j){
+void interchange(int a[], int i, int j){
     int temp = a[i];
     a[i] = a[j];
     a[j] = temp;
@@ -20,10 +20,9 @@ int partition(int a[], int m, int p){
         } while (a[j] > v);
 
         if (i < j){
-            Interchange(a, i, j);
+            interchange(a, i, j);
         }
     } while (i < j);
-
     a[m] = a[j];
     a[j] = v;
 
@@ -45,7 +44,9 @@ int main(){
     int mid, low, high;
     srand(time(0));
 
+
     for (int n = min; n <= max; n++){
+        cout<<endl<<"Number of elements = "<<n;
         cout<<endl<<"unsorted array = ";
         int arr[n];
 
@@ -61,9 +62,9 @@ int main(){
         for(int i = 0; i < n; i++){
             cout<<arr[i]<<" ";
         }
-        auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+        auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
-        cout<<endl<<"Time Taken = "<<duration.count()<<" us"<<endl;
+        cout<<endl<<"Time Taken = "<<duration.count()<<" ns"<<endl;
     }    
     return 0;
 }

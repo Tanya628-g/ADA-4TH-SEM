@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 n_values = []
 time_values = []
 
-with open("min_max.txt", "r") as file:
-    next(file)  
+with open("results.txt", "r") as file:
+    next(file)  # skip header
 
     for line in file:
         n, t = line.split()
@@ -12,8 +12,8 @@ with open("min_max.txt", "r") as file:
         time_values.append(int(t))
 
 plt.plot(n_values, time_values, marker='o')
-plt.xlabel("Number of Elements")
-plt.ylabel("Time (ns)")
-plt.title("Minimum-Maximum Element Time Complexity")
+plt.xlabel("Number of Elements (n)")
+plt.ylabel("Time (nanoseconds)")
+plt.title("Divide and Conquer Max-Min Time Complexity")
 plt.grid(True)
 plt.show()

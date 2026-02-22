@@ -65,9 +65,9 @@ int main(){
         for(int i = 0; i < n; i++){
             cout<<arr[i]<<" ";
         }
-        auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+        auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
-        cout<<endl<<"Time Taken = "<<duration.count()<<" us"<<endl;
+        cout<<endl<<"Time Taken = "<<duration.count()<<" ns"<<endl;
     }    
     return 0;
 }

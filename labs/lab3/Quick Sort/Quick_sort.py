@@ -1,11 +1,19 @@
 import matplotlib.pyplot as plt
 
-n = [3, 4, 5, 6, 7, 8]   
-time_ns = [417, 333, 541, 667, 416, 500] 
+n_values = []
+time_values = []
 
-plt.plot(n, time_ns, marker='o')
-plt.xlabel("Number of elements")
-plt.ylabel("Time(nanoseconds)")
-plt.title("time complexity- Quick Sort")
+with open("quick_sort.txt", "r") as file:
+    next(file)  
+
+    for line in file:
+        n, t = line.split()
+        n_values.append(int(n))
+        time_values.append(int(t))
+
+plt.plot(n_values, time_values, marker='o')
+plt.xlabel("Number of Elements")
+plt.ylabel("Time (ns)")
+plt.title("Quick Sort Time Complexity")
 plt.grid(True)
 plt.show()

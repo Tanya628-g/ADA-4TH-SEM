@@ -1,4 +1,6 @@
 #include<iostream>
+#include<chrono>
+#include<fstream>
 using namespace std;
 
 void interchange(int a[], int i, int j){
@@ -43,6 +45,8 @@ int main(){
     cin>>max;
     int mid, low, high;
     srand(time(0));
+    ofstream fout("quick_sort.txt");
+    fout << "n time_ns"<<endl;
 
 
     for (int n = min; n <= max; n++){
@@ -65,6 +69,7 @@ int main(){
         auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
         cout<<endl<<"Time Taken = "<<duration.count()<<" ns"<<endl;
+        fout<<n<<" "<<duration.count()<<endl;
     }    
     return 0;
 }

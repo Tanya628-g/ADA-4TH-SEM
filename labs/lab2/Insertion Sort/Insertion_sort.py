@@ -14,6 +14,6 @@ with open("insertion_sort.txt", "r") as file:
 plt.plot(n_values, time_values, marker='o')
 plt.xlabel("Number of Elements")
 plt.ylabel("Time (ns)")
-plt.title("Insertion Sort````````` Time Complexity")
+plt.title("Insertion Sort Time Complexity")
 plt.grid(True)
 plt.show()

@@ -1,6 +1,7 @@
 #include<iostream>
 using namespace std;
 #include<chrono>
+#include<fstream>
 
 void merge(int arr[], int low, int mid, int high){
     int i = low;
@@ -48,6 +49,8 @@ int main(){
     cin>>max;
     int mid, low, high;
     srand(time(0));
+    ofstream fout("merge_sort.txt");
+    fout<<"n time_ns array_values\n";
 
     for (int n = min; n <= max; n++){
         cout<<endl<<"unsorted array = ";
@@ -68,6 +71,7 @@ int main(){
         auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
 
         cout<<endl<<"Time Taken = "<<duration.count()<<" ns"<<endl;
+        fout<<n<<" "<<duration.count()<<" "<<endl;
     }    
     return 0;
 }

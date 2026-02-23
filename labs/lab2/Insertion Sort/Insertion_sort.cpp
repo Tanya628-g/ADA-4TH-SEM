@@ -1,5 +1,6 @@
 #include<iostream>
 #include<chrono>
+#include<fstream>
 using namespace std;
 const int max_size = 100;
 
@@ -25,6 +26,9 @@ int main(){
     cin>>max;
 
     srand(time(0));
+    ofstream fout("insertion_sort.txt");
+    fout << "n time_ns"<<endl;
+
     for(int n = min; n <= max; n++){
         cout<<"\nArray size = "<<n<<endl;
         int arr[max_size];
@@ -47,6 +51,7 @@ int main(){
         auto duration =chrono::duration_cast<chrono::nanoseconds>(end - start);
 
         cout<<"Time taken: "<<duration.count()<<" ns"<<endl;
+        fout<<n<<" "<<duration.count()<<endl;
     }
 
     return 0;

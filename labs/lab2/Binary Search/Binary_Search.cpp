@@ -1,5 +1,6 @@
 #include<iostream>
 #include<chrono>  
+#include<fstream>
 using namespace std;
 
 const int max_size = 100;
@@ -29,6 +30,9 @@ int main(){
     cin>>max;
 
     srand(time(0)); 
+    ofstream fout("binary_search.txt");
+    fout << "n time_ns"<<endl;
+
     for(int n = min; n <= max; n++){
         cout<<"\nArray size = "<<n<<endl;
         int arr[max_size];
@@ -54,6 +58,7 @@ int main(){
             cout<<"Element not found"<<endl;
         }
         cout<<"Time taken: "<<duration.count()<<" ns"<<endl;
+        fout<<n<<" "<<duration.count()<<endl;
     }
     return 0;
 }

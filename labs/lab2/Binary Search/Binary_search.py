@@ -1,11 +1,19 @@
 import matplotlib.pyplot as plt
 
-n = [3, 4, 5, 6, 7, 8]   
-time_ns = [125, 42, 83, 34, 125, 167] 
+n_values = []
+time_values = []
 
-plt.plot(n, time_ns, marker='o')
-plt.xlabel("Number of elements")
-plt.ylabel("Time(nanoseconds)")
-plt.title("time complexity- Binary Search")
+with open("binary_search.txt", "r") as file:
+    next(file)  
+
+    for line in file:
+        n, t = line.split()
+        n_values.append(int(n))
+        time_values.append(int(t))
+
+plt.plot(n_values, time_values, marker='o')
+plt.xlabel("Number of Elements")
+plt.ylabel("Time (ns)")
+plt.title("Binary Search Time Complexity")
 plt.grid(True)
 plt.show()

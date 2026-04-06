@@ -2,23 +2,63 @@
 using namespace std;
 const int max_size=100;
 
-void insertion_sort(int arr[], int n){
-    for(int i = 1; i < n; i++){
-        int key = arr[i];
+void by_profit(float arr[][3], int n) {
+    for (int i = 1; i < n; i++) {
+        float key0 = arr[i][0];
+        float key1 = arr[i][1];
+        float key2 = arr[i][2];
         int j = i - 1;
 
-        while(j >= 0 && arr[j] > key){
-            arr[j + 1] = arr[j];
+        while (j >= 0 && arr[j][0] < key0) {
+            arr[j + 1][0] = arr[j][0];
+            arr[j + 1][1] = arr[j][1];
+            arr[j + 1][2] = arr[j][2];
             j--;
         }
-        arr[j + 1] = key;
+
+        arr[j + 1][0] = key0;
+        arr[j + 1][1] = key1;
+        arr[j + 1][2] = key2;
     }
 }
-int by_profit(int arr[][3], int size){
+void by_weight(float arr[][3], int n) {
+    for (int i = 1; i < n; i++) {
+        float key0 = arr[i][0];
+        float key1 = arr[i][1];
+        float key2 = arr[i][2];
+        int j = i - 1;
 
+        while (j >= 0 && arr[j][1] > key1) {
+            arr[j + 1][0] = arr[j][0];
+            arr[j + 1][1] = arr[j][1];
+            arr[j + 1][2] = arr[j][2];
+            j--;
+        }
+
+        arr[j + 1][0] = key0;
+        arr[j + 1][1] = key1;
+        arr[j + 1][2] = key2;
+    }
 }
-int by_weighht(){}
-int pr_wt(){}
+void by_pr_wt(float arr[][3], int n) {
+    for (int i = 1; i < n; i++) {
+        float key0 = arr[i][0];
+        float key1 = arr[i][1];
+        float key2 = arr[i][2];
+        int j = i - 1;
+
+        while (j >= 0 && arr[j][2] < key2) {
+            arr[j + 1][0] = arr[j][0];
+            arr[j + 1][1] = arr[j][1];
+            arr[j + 1][2] = arr[j][2];
+            j--;
+        }
+
+        arr[j + 1][0] = key0;
+        arr[j + 1][1] = key1;
+        arr[j + 1][2] = key2;
+    }
+}
 
 int main(){
     int min, max;

@@ -3,13 +3,14 @@ import matplotlib.pyplot as plt
 n_values = []
 time_values = []
 
-with open("job_scheduling.txt", "r") as file:
-    next(file)
+with open("labs/lab6/Activity Selection/job_scheduling.txt", "r") as file:
+    next(file) 
 
     for line in file:
-        n, t, s = line.split()   
-        n_values.append(int(n))
-        time_values.append(int(t))
+        if line.strip(): 
+            n, t, s = line.split()
+            n_values.append(int(n))
+            time_values.append(int(t))
 
 plt.plot(n_values, time_values, marker='o')
 plt.xlabel("Number of Jobs (n)")

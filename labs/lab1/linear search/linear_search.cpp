@@ -3,13 +3,13 @@
 #include<fstream>
 using namespace std;
 
-void ls(int arr[], int ele){
-    int mid;
-    cout<<"Enter element to be search";
-    ele = rand() % 100;
-    cout<<ele<<endl;
-
-
+int ls(int arr[], int n, int ele){
+    for(int i=0; i<n; i++){
+        if(arr[i]==ele){
+            return i;
+        }
+    }
+    return -1;
 }
 int main(){
     int min, max;
@@ -22,23 +22,30 @@ int main(){
     srand(time(0));
 
     ofstream fout("Linear_Search.txt");
-    fout<<"n \t time(ns)";
+    fout<<"n \t time(ns)\n";
 
     for(int n=min; n<=max; n++){
         cout<<"Array of Elements: ";
         int arr[n];
         
-        for(int i=0; i<=n ; i++){
+        for(int i=0; i<n ; i++){
             arr[i] = rand() % 100;
             cout<<arr[i]<<" ";
         }
-        cout<<"Element searched at "<<ls(arr, n);
+        int ele= rand() % 100;
+        cout<<"Element to be searched: "<<ele<<endl;
 
         auto start = chrono::high_resolution_clock::now();
-        int ele= ls(arr,n);
+        int index= ls(arr,n, ele);
         auto end= chrono::high_resolution_clock::now();
         std::chrono::nanoseconds duration= std::chrono::duration_cast<std::chrono::nanoseconds>(end-start);
 
+        if(index != -1){
+            cout<<"Element at index: "<<index<<endl;
+        }
+        else{
+            cout<<"Element not found"<<endl;
+        }
        cout<<endl<<"Time Taken = "<<duration.count()<<endl;
        fout<<n<<" "<<duration.count()<<endl;
     }

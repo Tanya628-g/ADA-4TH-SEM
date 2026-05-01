@@ -1,31 +1,58 @@
-#include <iostream>
+#include<iostream>
+#include<chrono>
+#include<fstream>
 using namespace std;
 
-long long countRows = 0;
+const int MAX = 20;
 
-void truthTable(int n, string s = "") {
-    if (n == 0) {
-        countRows++;
+void truthTable(bool arr[], int n, int index){
+    if(index == n){
+        for(int i = 0; i < n; i++){
+            if(arr[i])
+                cout<<"true ";
+            else
+                cout<<"false ";
+        }
+        cout<<endl;
         return;
     }
-    truthTable(n - 1, s + "T ");
-    truthTable(n - 1, s + "F ");
+
+    arr[index] = true;
+    truthTable(arr, n, index + 1);
+
+    arr[index] = false;
+    truthTable(arr, n, index + 1);
 }
-int main() {
-    int min_n, max_n;
+
+int main(){
+    int min, max;
+
     cout<<"Enter minimum number of variables: ";
-    cin>>min_n;
+    cin>>min;
+
     cout<<"Enter maximum number of variables: ";
-    cin>>max_n;
-    cout<<endl;
-    cout<< "n\t rows(2^n)\n";
+    cin>>max;
     cout<<endl;
 
-    for (int n = min_n; n <= max_n; n++) {
-        countRows = 0;
-        truthTable(n);
-        cout << n << "\t " << countRows << endl;
+    ofstream fout("truth_table.txt");
+    fout<<"n time_ns"<<endl;
+
+    for(int n = min; n <= max; n++){
+        cout<<"\nNumber of variables = "<<n<<endl;
+
+        bool arr[MAX];
+
+        auto start = chrono::high_resolution_clock::now();
+        truthTable(arr, n, 0);
+        auto end = chrono::high_resolution_clock::now();
+
+        auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+
+        cout<<"Time taken = "<<duration.count()<<" ns"<<endl;
+
+        fout<<n<<" "<<duration.count()<<endl;
     }
 
+    fout.close();
     return 0;
 }

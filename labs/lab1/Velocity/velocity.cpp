@@ -1,29 +1,37 @@
-#include <iostream>
+#include<iostream>
+#include<fstream>
 using namespace std;
 
-int ball(double height) {
-    if (height < 0.01) return 0;  
-    return 1 + ball(height / 2.0);  
+double reduction = 0.575;
+int tips;
+
+void no_of_stoppage(double v){
+    if(v < 1.0){
+        return;
+    }
+    tips++;
+    no_of_stoppage(v * reduction);
 }
-int main() {
-    double min_h, max_h, interval;
-    cout<<"Enter minimum height: ";
-    cin>>min_h;
 
-    cout<<"Enter maximum height: ";
-    cin>>max_h;
+int main(){
+    int min_v, max_v;
+    cout<<"Enter minimum velocity: ";
+    cin>>min_v;
 
-    cout<<"Enter interval: ";
-    cin>>interval;
-    cout<<endl;
+    cout<<"Enter maximum velocity: ";
+    cin>>max_v;
 
-    cout<<"Height Bounces";
-    cout<<endl;
+    ofstream fout("tips_data.txt");
+    fout<<"velocity tips"<<endl;
 
-    for (double h = min_h; h <= max_h; h += interval) {
-        int bounces = ball(h);
-        cout << h << "\t" << bounces << endl;
+    for(int v=min_v; v<=max_v; v++){
+        tips = 0;
+        no_of_stoppage(v);
+        cout<<endl<<"v= "<<v<<endl;
+        cout<<"tips= "<<tips<<endl;
+        fout<<v<<" "<<tips<<endl;
     }
 
+    fout.close();
     return 0;
 }

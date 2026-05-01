@@ -4,7 +4,6 @@ using namespace std;
 const int INFI = 5/0;
 
 // int stage(int a[][], int n){}
-
 int main(){
     int vertex;
     cout<<"enter number of vertices: ";

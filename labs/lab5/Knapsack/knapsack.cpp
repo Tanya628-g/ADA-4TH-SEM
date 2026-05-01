@@ -1,85 +1,65 @@
 #include<iostream>
+#include<chrono>
+#include<fstream>
 using namespace std;
-const int max_size=100;
-
-void by_profit(float arr[][3], int n) {
-    for (int i = 1; i < n; i++) {
-        float key0 = arr[i][0];
-        float key1 = arr[i][1];
-        float key2 = arr[i][2];
-        int j = i - 1;
-
-        while (j >= 0 && arr[j][0] < key0) {
-            arr[j + 1][0] = arr[j][0];
-            arr[j + 1][1] = arr[j][1];
-            arr[j + 1][2] = arr[j][2];
-            j--;
-        }
-
-        arr[j + 1][0] = key0;
-        arr[j + 1][1] = key1;
-        arr[j + 1][2] = key2;
-    }
-}
-void by_weight(float arr[][3], int n) {
-    for (int i = 1; i < n; i++) {
-        float key0 = arr[i][0];
-        float key1 = arr[i][1];
-        float key2 = arr[i][2];
-        int j = i - 1;
-
-        while (j >= 0 && arr[j][1] > key1) {
-            arr[j + 1][0] = arr[j][0];
-            arr[j + 1][1] = arr[j][1];
-            arr[j + 1][2] = arr[j][2];
-            j--;
-        }
-
-        arr[j + 1][0] = key0;
-        arr[j + 1][1] = key1;
-        arr[j + 1][2] = key2;
-    }
-}
-void by_pr_wt(float arr[][3], int n) {
-    for (int i = 1; i < n; i++) {
-        float key0 = arr[i][0];
-        float key1 = arr[i][1];
-        float key2 = arr[i][2];
-        int j = i - 1;
-
-        while (j >= 0 && arr[j][2] < key2) {
-            arr[j + 1][0] = arr[j][0];
-            arr[j + 1][1] = arr[j][1];
-            arr[j + 1][2] = arr[j][2];
-            j--;
-        }
-
-        arr[j + 1][0] = key0;
-        arr[j + 1][1] = key1;
-        arr[j + 1][2] = key2;
-    }
-}
+const int MAX = 100;
 
 int main(){
-    int min, max;
-    float arr[max_size][3];
-    cout<<"enter minimum number of items in list ";
-    cin>>min;
-
-    cout<< "enter maximum number of items in list ";
-    cin>>max;
+    int min_el, max_el;
     srand(time(0));
+    ofstream fout("knapsack.txt");
 
-    for(int l=min; l<=max; l++){
-        cout<<endl<<"list size "<<l<<endl<<"Profit  Weight  Profit/Weight"<<endl;
-        for(int i=0; i<l; i++){
-            for(int j=0; j<2; j++){
-                arr[i][j]= rand() % 100;
-                cout<<arr[i][j]<<"        ";
-            }
-        arr[i][2]= (double)arr[i][1] / arr[i][0];
-        cout<<arr[i][2]<<endl;
+    cout<<"Enter minimum number of items: ";
+    cin>>min_el;
+
+    cout<<"Enter maximum number of items: ";
+    cin>>max_el;
+    cout<<endl;
+
+    fout<<"n time_ns"<<endl;
+    for(int n=min_el; n<=max_el; n++){
+        cout<<"Number of items = "<<n<<endl;
+
+        double arr[MAX][3];
+        for(int i = 0; i < n; i++){
+            arr[i][0] = rand() % 100 + 1;   
+            arr[i][1] = rand() % 50 + 1;    
+            arr[i][2] = arr[i][0] / arr[i][1];
+
+            cout<<"Item "<<i+1<<": P="<<arr[i][0]<<" W="<<arr[i][1]<<" P/W="<<arr[i][2]<<endl;
         }
+        int capacity = rand() % (n * 25) + 1;
+        cout<<"Capacity = "<<capacity<<endl;
+        auto start = chrono::high_resolution_clock::now();
+
+        for(int i=0; i<n - 1; i++){
+            for(int j=i + 1; j<n; j++){
+                if(arr[i][2] < arr[j][2]){
+                    for(int k=0; k<3; k++){
+                        swap(arr[i][k], arr[j][k]);
+                    }
+                }
+            }
+        }
+        double totalProfit = 0;
+        int cap = capacity;
+        for(int i=0; i< n; i++){
+            if(cap >= arr[i][1]){
+                cap -= arr[i][1];
+                totalProfit += arr[i][0];
+            }
+            else{
+                totalProfit += arr[i][0] * (cap / arr[i][1]);
+                break;
+            }
+        }
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+
+        cout<<"Maximum Profit: "<<totalProfit<<endl;
+        cout<<"Time taken(ns): "<<duration.count()<<endl<<endl;
+        fout<<n<<" "<<duration.count()<<endl;
     }
+    fout.close();
     return 0;
 }

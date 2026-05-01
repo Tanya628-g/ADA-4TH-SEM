@@ -1,40 +1,49 @@
-#include <iostream>
-#include <chrono>
+#include<iostream>
+#include<chrono>
 #include<fstream>
 using namespace std;
+const int max = 100;
 
-
-int hornersRule(int arr[], int n, int x) {
-    int result = arr[0];
-    for (int i=1; i<n; i++) {
-        result = result * x + arr[i];
+int horner(int coeff[], int n, int x){
+    if(n == 0){
+        return coeff[0];
     }
-    return result;
+    return x * horner(coeff, n-1, x) + coeff[n];
 }
-int main() {
+int main(){
+    int x;
+    cout<<"Enter value of x: ";
+    cin>>x;
+
     int min, max;
-    cout << "Enter minimum degree of polynomial: ";
-    cin >> min;
-    cout << "Enter maximum degree of polynomial: ";
-    cin >> max;
-    cout<<endl;
-    // cout << "n\t time(us)\n";
-    cout << endl;
+    cout<<"Enter minimum degree of polynomial: ";
+    cin>>min;
+    cout<<"Enter maximum degree of polynomial: ";
+    cin>>max;
 
+    srand(time(0));
     ofstream fout("horner_rule.txt");
-    fout << "n time_us" << endl;
-    for (int n = min; n <= max; n++) {
-        int arr[100];
-        for (int i = 0; i <= n; i++) {
-            arr[i] = 1;
-        }
-        int x = 2;
-        auto start = std::chrono::high_resolution_clock::now();
-        hornersRule(arr, n + 1, x);
-        auto end = std::chrono::high_resolution_clock::now();
+    fout << "n time_ns"<<endl;
 
-        std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(end - start);
-        fout << n << " " << duration.count() << endl;
+    for(int n = min; n <= max; n++){
+        cout<<"\nPolynomial degree = "<<n<<endl;
+
+        int coeff[max];
+        cout<<"Coefficients: ";
+        for(int i = 0; i <= n; i++){
+            coeff[i] = rand() % 10;
+            cout<<coeff[i]<<" ";
+        }
+        cout<<endl;
+
+        auto start = chrono::high_resolution_clock::now();
+        int result = horner(coeff, n, x);
+        auto end = chrono::high_resolution_clock::now();
+        auto duration = chrono::duration_cast<chrono::nanoseconds>(end - start);
+
+        cout<<"Polynomial value = "<<result<<endl;
+        cout<<"Time taken: "<<duration.count()<<" ns"<<endl;
+        fout<<n<<" "<<duration.count()<<endl;
     }
     return 0;
 }

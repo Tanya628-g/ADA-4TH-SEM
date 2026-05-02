@@ -196,3 +196,43 @@ If mismatch found:
 **Time Complexity:** O(n²)
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/98f3b12b-7c94-49f3-a9b4-a5b623bdb7d6" />
 
+## LAB 3
+
+### 1. Merge Sort
+
+**Problem Statement:** To sort an array using Merge Sort.  
+**Topic:** Divide and Conquer  
+**Naive Approach:** Use simple sorting methods like bubble or selection sort.
+
+**Algorithm:**
+```
+1. Take an array input from user
+2. Divide array into two halves
+3. Recursively sort both halves
+4. Merge the sorted halves
+5. Return the sorted array
+```
+
+**Time Complexity:** O(n log n)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/72044e30-2033-4e24-a0bf-8262aca99a36" />
+
+
+### 2. Quick Sort
+
+**Problem Statement:** To sort an array using Quick Sort.  
+**Topic:** Divide and Conquer  
+**Naive Approach:** Use simple sorting algorithms like bubble sort.
+
+**Algorithm:**
+```
+1. Take an array input from the user
+2. Choose a pivot element
+3. Partition array into elements smaller and greater than pivot
+4. Recursively apply quicksort on subarrays
+5. Return the sorted array
+```
+
+**Time Complexity:** Best: O(n log n), Worst: O(n²)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/dfd0bee6-6319-4e90-aec4-6c380558b617" />
+
+

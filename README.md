@@ -54,6 +54,8 @@
 1.5 Return all possible sets
 ```
 **Time Complexity:** O(n!)
+<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/3dbde1c4-37f9-4054-a730-0311536f8c0c" />
+
 
 
 ### 5. Tower of Hanoi

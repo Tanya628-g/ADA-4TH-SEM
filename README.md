@@ -151,3 +151,48 @@ If mismatch found:
 1.6 If no mismatch, no number is missing
 ```
 **Time Complexity:** O(n)
+
+
+## LAB 2
+
+### 1. Binary Search
+
+**Problem Statement:** To search an element in a sorted array using binary search.  
+**Topic:** Divide and Conquer  
+**Naive Approach:** Traverse the array linearly to find the element.  
+
+**Algorithm:**
+```
+1. Take array input from the user
+2. Ask for the element to search
+3. Sort the array
+4. Find the low and high of array
+5. Find mid using (low + high) / 2
+6. Compare mid element with target
+7. Update low or high accordingly
+8. Repeat until element is found
+9. Return the index of the searched element
+```
+**Time Complexity:** O(log n)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/1f89cb11-34e9-4f1a-a5f0-26ffc1f76336" />
+
+
+
+### 2. Insertion Sort
+
+**Problem Statement:** Sort an array using Insertion Sort.  
+**Topic:** Sorting  
+**Naive Approach:** Insert each element in its correct position in a sorted part of the array.  
+
+**Algorithm:**
+```
+1. Take one element
+2. Compare with previous elements
+3. Shift elements if needed
+4. Insert element in correct position
+5. Repeat for all elements
+```
+
+**Time Complexity:** O(n²)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/98f3b12b-7c94-49f3-a9b4-a5b623bdb7d6" />
+

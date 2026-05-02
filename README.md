@@ -40,7 +40,7 @@
 1.3 Return the index of the element so found
 ```
 **Time Complexity:** O(n)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/b243c51f-864f-4ec2-9cee-e94bfe17616c" />
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/b243c51f-864f-4ec2-9cee-e94bfe17616c" />
 
 
 

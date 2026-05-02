@@ -43,7 +43,6 @@
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/b243c51f-864f-4ec2-9cee-e94bfe17616c" />
 
 
-
 ### 4. Permutation Generator
 **Problem Statement:** To generate all permutations of the given set  
 
@@ -56,9 +55,7 @@
 1.5 Return all possible sets
 ```
 **Time Complexity:** O(n!)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/8710edbe-8618-49f2-8f02-f604bd10d56a" />
-
-
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/8710edbe-8618-49f2-8f02-f604bd10d56a" />
 
 
 ### 5. Tower of Hanoi
@@ -72,8 +69,7 @@
 1.3 Move n-1 disks to destination
 ```
 **Time Complexity:** O(2^n)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/9972ef61-51bc-499d-b557-98cf2971946f" />
-
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/9972ef61-51bc-499d-b557-98cf2971946f" />
 
 
 ### 6. Velocity
@@ -88,7 +84,7 @@
 1.4 Return total number of tips till the velocity becomes 0
 ```
 **Time Complexity:** O(log v)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/a0748ae1-fd1b-46ae-b36a-655d229bd199" />
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/a0748ae1-fd1b-46ae-b36a-655d229bd199" />
 
 
 ### 7. Power
@@ -102,7 +98,7 @@
 1.3 Return the final result
 ```
 **Time Complexity:** O(n)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/cad6acd5-cfde-4f38-8472-6f8f4ee60323" />
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/cad6acd5-cfde-4f38-8472-6f8f4ee60323" />
 
 
 ### 8. Sum of N Numbers
@@ -118,7 +114,7 @@
 1.5 Output sum
 ```
 **Time Complexity:** O(n)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/98433ce4-eabc-4c2b-a339-6751d97ad012" />
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/98433ce4-eabc-4c2b-a339-6751d97ad012" />
 
 
 ### 9. Truth Table Generation
@@ -132,7 +128,7 @@
 1.4 Give the truth table of the desired number of variable
 ```
 **Time Complexity:** O(2^n)
-<img width="640" height="480" alt="image" src="https://github.com/user-attachments/assets/e7445991-a4d1-4fd5-8519-3b021c8b33ba" />
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/e7445991-a4d1-4fd5-8519-3b021c8b33ba" />
 
 
 

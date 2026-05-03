@@ -236,3 +236,53 @@ If mismatch found:
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/dfd0bee6-6319-4e90-aec4-6c380558b617" />
 
 
+## Lab 5
+
+### 1) Convex Hull
+
+**Problem Statement:**  
+To find the convex hull of a set of points.
+
+**Algorithm:**  
+1. Take input of number of points from user  
+2. Take input of set of points from user  
+3. Use the orientation function to determine orientation of triplets  
+4. Check whether points lie inside a triangle using an inside-triangle boolean function  
+5. Return the convex hull points  
+**Time Complexity:**  
+O(n^4)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/b4cac1f5-32f8-4019-80e8-35df1d4c0310" />
+
+
+### 2) Knapsack Problem
+
+**Problem Statement:**  
+To purchase items while maximizing profit while staying within the maximum capacity.
+
+**Algorithm:**  
+1. Take input of number of items from user  
+2. Generate weights and profits using `rand()` function  
+3. Compute profit-to-weight ratio for each item  
+4. Sort items based on ratio in descending order  
+5. Select items that fit within maximum capacity  
+**Time Complexity:**  
+O(n log n)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/a63feba9-75d4-467c-9bd9-9cffb4b6767c" />
+
+
+### 3) Matrix Multiplication
+
+**Problem Statement:**  
+To find the product of two matrices.
+
+**Algorithm:**  
+1. Take input of two matrices from user  
+2. Use nested loops to compute matrix multiplication  
+3. Return the resultant matrix  
+
+**Time Complexity:**  
+O(n^3)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/9964a4a2-f8bc-4896-878c-0466b6bef7da" />
+
+
+

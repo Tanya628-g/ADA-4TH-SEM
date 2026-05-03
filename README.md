@@ -235,6 +235,25 @@ If mismatch found:
 **Time Complexity:** Best: O(n log n), Worst: O(n²)
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/dfd0bee6-6319-4e90-aec4-6c380558b617" />
 
+## Lab 4
+### Minimum – Maximum
+
+**Problem Statement*:* To find the maximum and minimum element in an array.
+**Naive Approach:**Traverse the array twice to find the maximum and minimum values separately.
+
+**Algorithm:**
+```
+1. Take an array input from the user  
+2. Initialize min and max as the first element of the array  
+3. Traverse the array  
+4. Update min and max accordingly  
+5. Return the maximum and minimum values
+```
+
+**Time Complexity:**O(n)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/7f2a2bb7-8c17-4fc7-815f-3e2edd9c2ba9" />
+
+
 
 ## Lab 5
 

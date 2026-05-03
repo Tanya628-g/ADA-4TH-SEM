@@ -381,3 +381,193 @@ O(n^3)
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/8e3761c7-1dbb-426b-8737-4ffe318a5e2d" />
 
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/2af206a3-3d33-4f63-aa5e-c64be73026cc" />
+
+
+## Lab 8
+
+### 1. Matrix Chain Multiplication
+
+**Problem Statement:** To determine the most efficient way to multiply a given sequence of matrices. 
+**Naive Approach:** Try all possible parenthesizations and compute cost for each, then select minimum.
+**Algorithm:**
+```
+1.1 Take input of number of matrices
+1.2 Take input of dimensions array
+1.3 Initialize cost matrix
+1.4 Apply dynamic programming to compute minimum cost
+1.5 For chain length from 2 to n
+1.6 For each i and j compute minimum cost by splitting at k
+1.7 Store minimum value
+1.8 Return minimum multiplication cost
+```
+**Time Complexity:** O(n³)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/96ce3a36-0a13-4686-b30d-8396bcc22257" />
+
+
+
+### 2. Multistage Graph (Forward Approach)
+
+**Problem Statement:** To find shortest path from source to destination in a multistage graph using forward method.  
+**Naive Approach:** Check all possible paths from source to destination and select minimum cost path.
+**Algorithm:**
+```
+1.1 Take input of number of vertices and edges
+1.2 Represent graph as adjacency matrix
+1.3 Initialize cost array
+1.4 Start from source node
+1.5 For each stage update cost of adjacent nodes
+1.6 Store minimum cost
+1.7 Continue till destination
+1.8 Return shortest path cost
+```
+**Time Complexity:** O(V²)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/79b67cd0-1b40-4909-b71d-2a94edab0ab8" />
+
+
+### 3. Multistage Graph (Backward Approach)
+
+**Problem Statement:** To find shortest path from source to destination using backward method.  
+**Naive Approach:** Check all paths and select minimum cost path.
+**Algorithm:**
+```
+1.1 Take input of graph
+1.2 Initialize cost of destination as 0
+1.3 Traverse nodes backward
+1.4 For each node compute minimum cost to reach destination
+1.5 Store cost
+1.6 Continue till source
+1.7 Return minimum cost from source
+```
+**Time Complexity:** O(V²)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/6740c82b-1fd0-41e2-a765-2e1af4c24460" />
+
+
+## Lab 9
+
+### 1. All Pairs Shortest Path
+
+**Problem Statement:** To find shortest paths between every pair of vertices in a graph.  
+**Topic:** Graph  
+**Naive Approach:** Run shortest path algorithm (like Dijkstra) from each vertex.
+
+**Algorithm:**
+```
+1.1 Take input of number of vertices
+1.2 Take input of adjacency matrix
+1.3 Initialize distance matrix
+1.4 For each intermediate vertex k
+1.5 For each pair (i, j) update distance if shorter path found via k
+1.6 Repeat for all vertices
+1.7 Return final distance matrix
+```
+
+**Time Complexity:** O(n³)
+
+---
+
+## Lab 10
+
+### 1. 0/1 Knapsack
+
+**Problem Statement:** To maximize total value of items without exceeding given capacity.  
+**Topic:** Dynamic Programming  
+**Naive Approach:** Generate all subsets and select maximum value within capacity.
+
+**Algorithm:**
+```
+1.1 Take input of number of items
+1.2 Take weights and values
+1.3 Initialize DP table
+1.4 For each item
+1.5 For each weight include or exclude item
+1.6 Take maximum value
+1.7 Store result
+1.8 Return maximum value
+```
+
+**Time Complexity:** O(nW)
+
+---
+
+### 2. Travelling Salesperson
+
+**Problem Statement:** To find the minimum cost tour that visits all cities exactly once and returns to start.  
+**Topic:** Backtracking  
+**Naive Approach:** Generate all permutations of cities and find minimum cost path.
+
+**Algorithm:**
+```
+1.1 Take input of number of cities
+1.2 Take distance matrix
+1.3 Generate all permutations of cities
+1.4 For each permutation compute total travel cost
+1.5 Keep track of minimum cost
+1.6 Return minimum tour cost
+```
+
+**Time Complexity:** O(n!)
+
+---
+
+## Lab 11
+
+### 1. N-Queens
+
+**Problem Statement:** To place N queens on N×N chessboard such that no two queens attack each other.  
+**Topic:** Backtracking  
+**Naive Approach:** Try all possible placements and check validity.
+
+**Algorithm:**
+```
+1.1 Take input n
+1.2 Place queen row by row
+1.3 For each column check if position is safe
+1.4 If safe place queen
+1.5 Recur for next row
+1.6 Backtrack if needed
+1.7 Print valid configurations
+```
+
+**Time Complexity:** O(n!)
+
+---
+
+### 2. Subset Sum
+
+**Problem Statement:** To determine if there exists a subset with given sum.  
+**Topic:** Backtracking  
+**Naive Approach:** Generate all subsets and check sum.
+
+**Algorithm:**
+```
+1.1 Take input of set and target sum
+1.2 Consider each element
+1.3 For each element include or exclude it
+1.4 Check if sum equals target
+1.5 Repeat recursively
+1.6 Return true if subset found
+```
+
+**Time Complexity:** O(2ⁿ)
+
+---
+
+### 3. Graph Colouring
+
+**Problem Statement:** To assign colours to vertices such that no adjacent vertices have same colour.  
+**Topic:** Backtracking  
+**Naive Approach:** Try all possible colour combinations.
+
+**Algorithm:**
+```
+1.1 Take input of graph and number of colours
+1.2 Assign colour to first vertex
+1.3 For each vertex try all colours
+1.4 Check if safe (no adjacent same colour)
+1.5 Assign colour
+1.6 Recur for next vertex
+1.7 Backtrack if needed
+1.8 Return valid colouring
+```
+
+**Time Complexity:** O(mⁿ)

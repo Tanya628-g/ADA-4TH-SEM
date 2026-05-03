@@ -303,5 +303,81 @@ To find the product of two matrices.
 O(n^3)
 <img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/9964a4a2-f8bc-4896-878c-0466b6bef7da" />
 
+## Lab 6
+
+### 1) Dijkstra Algorithm  
+
+**Problem Statement-**To find the shortest path from a source vertex to all other vertices in a weighted graph.
+**Algorithm:**  
+```
+1. Take input of number of vertices from the user  
+2. Initialize all distances to infinity  
+3. Set source distance = 0  
+4. Repeat V-1 times:  
+   - Select unvisited vertex with minimum distance  
+   - Mark it as visited  
+   - Update distances of adjacent vertices  
+5. Print shortest distances  
+```
+**Time Complexity:**O(V²)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/fa784293-980d-42f5-8c42-a318771466fd" />
 
 
+### 2) Prim’s Algorithm  
+
+**Problem Statement-**  To find the Minimum Spanning Tree (MST) of a graph using Prim’s Algorithm.
+**Algorithm:**
+```
+1. Take input of number of vertices from the user  
+2. Take input of the distance matrix  
+3. Start from any vertex  
+4. Select the minimum weight edge connecting a visited vertex to an unvisited vertex  
+5. Repeat until all vertices are included  
+6. Return the Minimum Spanning Tree  
+```
+**Time Complexity:** O(V²)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/db9d3cdf-5277-42a2-b843-a2c928fb36b4" />
+
+
+### 3) Kruskal’s Algorithm  
+
+**Problem Statement-** To find the Minimum Spanning Tree (MST) of a graph.
+**Naive Approach-** Generate all spanning trees and select the one with minimum weight.
+**Algorithm:**
+```
+1. Take input of number of vertices from the user  
+2. Take input of all edges (or distance matrix)  
+3. Sort all edges in increasing order of weight  
+4. Make each vertex its own set  
+5. For each edge:  
+   - If it connects two different sets:  
+     - Add the edge to MST  
+     - Perform union of the sets  
+6. Stop when V-1 edges are selected  
+7. Return the Minimum Spanning Tree  
+```
+**Time Complexity:** O(E log E)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/176be919-9e55-4296-bbe0-6a501c31aa30" />
+
+
+
+### 4) Activity Selection  
+
+**Problem Statement-** To select the maximum number of non-overlapping activities (jobs) based on their start and finish times.
+**Algorithm:**
+```
+1. Take input of number of jobs from the user  
+2. Generate start and finish times for each job  
+3. Sort all jobs in increasing order of finish time  
+4. Select the first job and store its finish time  
+5. For each remaining job:  
+   - If start time ≥ last selected job’s finish time:  
+     - Select the job  
+     - Update last finish time  
+6. Continue until all jobs are processed  
+7. Return the total number of selected jobs  
+```
+**Time Complexity:** O(n log n)
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/8e3761c7-1dbb-426b-8737-4ffe318a5e2d" />
+
+<img width="540" height="380" alt="image" src="https://github.com/user-attachments/assets/2af206a3-3d33-4f63-aa5e-c64be73026cc" />
